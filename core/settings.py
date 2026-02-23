@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     
     # 3rd party
     'rest_framework',
+    'rest_framework_simplejwt',
     "rest_framework_simplejwt.token_blacklist",
     "rest_framework.authtoken",
 
@@ -186,6 +187,7 @@ ACCOUNT_LOGIN_METHODS = {"email"}
 
 LOGIN_REDIRECT_URL = "/api/google/success/"
 # LOGIN_REDIRECT_URL = "/admin/"
-# LOGOUT_REDIRECT_URL = "http://127.0.0.1:8000/accounts/google/login/"
+LOGOUT_REDIRECT_URL = "http://127.0.0.1:8000/accounts/google/login/"
 
+# SOCIALACCOUNT_ADAPTER = "accounts.adapters.CustomSocialAdapter"
 SOCIALACCOUNT_ADAPTER = "accounts.adapters.CustomSocialAdapter"

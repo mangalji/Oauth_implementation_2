@@ -13,9 +13,16 @@ class CustomSocialAdapter(DefaultSocialAccountAdapter):
     #     user.refresh_token = str(refresh)
 
     #     return user
-    def pre_social_login(self, request, sociallogin):
-        
+    # def login(self, request, user):
+
+        # print("adapter running")
+        # super().login(request,user)
+    
+    def pre_social_login(self,request,sociallogin):
         user = sociallogin.user
+
+        if user.pk is None:
+            user.save()        
         
         # login(request,user,backend="allauth.account.auth_backends.AuthenticationBackend")
         refresh = RefreshToken.for_user(user)
